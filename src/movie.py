@@ -13,6 +13,7 @@ class Movie:
     short_description: str = ""
     poster_url: str = ""
 
+
 @dataclass
 class MoviesList:
     movies: list[Movie]

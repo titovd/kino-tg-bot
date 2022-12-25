@@ -21,25 +21,31 @@ parser = KinopoiskParser(
 
 tgbot = TgBot(bot, parser)
 
+
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
     await tgbot.start_handler(message)
+
 
 @dp.message_handler(commands=['help'])
 async def send_help(message: types.Message):
     await tgbot.help_handler(message)
 
+
 @dp.message_handler(commands=['search'])
 async def search_movies(message: types.Message):
     await tgbot.search_handler(message)
+
 
 @dp.message_handler(filters.RegexpCommandsFilter(regexp_commands=['id([0-9]*)']))
 async def search_movies(message: types.Message):
     await tgbot.search_by_id_handler(message)
 
+
 @dp.message_handler(filters.RegexpCommandsFilter(regexp_commands=['sim([0-9]*)']))
 async def similars_movies(message: types.Message):
     await tgbot.similars_by_id_handler(message)
+
 
 if __name__ == '__main__':
     executor.start_polling(dp)

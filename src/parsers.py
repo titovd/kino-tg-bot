@@ -21,6 +21,7 @@ class BaseParser(ABC):
     async def parse_similars(self, id: int) -> MoviesList:
         pass
 
+
 class KinopoiskParser(BaseParser):
 
     def __init__(
