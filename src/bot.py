@@ -14,7 +14,7 @@ class TgBot:
         parsed_movies_pack = await self._parser.parse_pack_of_movies(message.get_args())
         movies_pack_message = self._create_movies_pack_message(parsed_movies_pack)
         await self._bot.send_message(message.chat.id, movies_pack_message, parse_mode="Markdown")
-    
+
     async def search_by_id_handler(self, message: types.Message) -> None:
         kp_id = int(message.text[3:])
         if (kp_id >= KP_MAX_ID) or (kp_id < 0):
@@ -32,7 +32,7 @@ class TgBot:
         kp_id = int(message.text[4:])
         if (kp_id >= KP_MAX_ID) or (kp_id < 0):
             self._bot.send_message(message.chat.id, ERR_TRY_MSG)
-        
+
         parsed_movies_pack = await self._parser.parse_similars(kp_id)
         movies_pack_message = self._create_movies_pack_message(parsed_movies_pack)
         movies_pack_message = f"Похожие на /id{kp_id}\n" + movies_pack_message
@@ -65,7 +65,8 @@ class TgBot:
         message += f"*Жанр:* {', '.join(movie.genres)}\n\n"
         message += f"*Кинопоиск:* {movie.rating_kinopoisk}\n*IMDB:* {movie.rating_imdb}\n\n"
         message += movie.short_description + "\n\n"
-        if len(message) >= 950:
-            message = message[:950] + "...\n\n"
+        if len(message) >= 900:
+            message = message[:900] + "...\n\n"
+        message += f"[Страница](https://www.kinopoisk.ru/film/{movie.id}/) фильма на Кинопоиске.\n\n"
         message += f"Посмотреть похожие: /sim{movie.id}"
         return message
