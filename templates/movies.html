@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content%}
+
+{% if movies_to_render %}
+
+{% for m in movies_to_render %}
+    <div class="all_cards"  >
+        <div class="card">
+            {% if m["poster_url"]%}
+            <img class="image" src={{m["poster_url"]}}>
+            {% else %}
+            <img class="image" src="static/poster.png">
+            {% endif %}
+        </div>
+
+        <div class="card-body" >
+            {% if m["year"] %}
+            <h5 class="title">{{m["name"]}} ({{m["year"]}})</h5>
+            {% else %}
+            <h5 class="title">{{m["name"]}}</h5>
+            {% endif %}
+
+            {% if m["genres"]%}
+            <h6 class="genres">Жанр: {{m["genres"][0]}} {{m["genres"][1]}} {{m["genres"][2]}}</h6>
+            {% endif %}
+
+            {% if m["rating_kinopoisk"]%}
+            <h6 class="rating">
+                <img class="rating-star" src="static/star.png" width="20" height="20"> Кинопоиск: {{m["rating_kinopoisk"]}}</h6>
+            {% endif %}
+
+            {% if m["rating_imdb"]%}
+            <h6 class="rating">
+                <img class="rating-star" src="static/star.png" width="20" height="20"> IMDB: {{m["rating_imdb"]}}</h6>
+            {% endif %}
+
+            {% if m["short_description"] %}
+            <p class="plot">{{m["short_description"]}}</p>
+            {% endif %}
+
+            <a href="https://www.kinopoisk.ru/film/{{m["id"]}}/">Страница фильма на Кинопоиск.</a> 
+
+
+        </div>
+    </div>
+{% endfor %}
+
+{% else %}
+
+<div class="container" align="center">
+    <h3>Искать фильм</h3><br>
+    <form class="search" action="{{url_for('movies')}}" method="POST">
+        <input type="search" placeholder=" Введите название фильма..." name="name" ><br><br>
+        <button class="button" type="submit" value="submit">Поиск</button>
+    </form>
+</div>
+
+{% endif %}
+
+{% endblock %}

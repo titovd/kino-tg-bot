@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content%}
+
+    <div class="container" align="center">
+        <h3>Искать фильм</h3><br>
+        <form class="search" action="{{url_for('movies')}}" method="POST">
+            <input type="search" placeholder=" Введите название фильма..." name="name" ><br><br>
+            <button class="button" type="submit" value="submit">Поиск</button>
+        </form>
+    </div>
+
+{% endblock %}
+

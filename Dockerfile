@@ -3,4 +3,5 @@ WORKDIR /home
 
 COPY . .
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python", "main.py"]
+RUN chmod +x run.sh
+ENTRYPOINT ["sh", "run.sh"]

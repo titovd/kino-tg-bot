@@ -1,0 +1,120 @@
+html, body {  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body {
+    background-color: #8fb2d1;
+    padding-top: 70px;
+}
+
+nav {
+    background-color: #FFFAFA;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #000;
+    box-sizing: border-box;
+    margin: auto;
+    opacity: 0.95;
+    min-width: 235px;
+    min-height: 40px;
+    max-height: 60px;
+    max-width: 260px;
+}
+
+.navbar-brand {
+    color: #808080;
+    font-weight: bold;
+    font-size: 118%;
+    transition-duration: 0.4s;
+    margin: auto;
+}
+
+.navbar-brand:hover {
+    color: #808080;
+    font-size: 122%;
+}
+
+.container {
+    padding: 35px 10px;
+    background: #FFFAFA;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px #000;
+    width: 30%;
+    margin: 100px auto;
+    min-height: 230px;
+    min-width: 400px;
+    opacity: 0.95;
+    font-size: 100%;
+}
+
+.container button {
+    border-radius:  5px;
+    border: 3px solid #808080;
+    color: #808080;
+    font-size: 120%;
+    outline: none;
+    transition-duration: 0.4s;
+}
+
+.container button:hover {
+    color: white;
+    background-color: #808080;
+}
+
+.container h3 {
+    font-weight: bold;
+    color: #808080;
+    width: 300px;
+}
+
+.container input {
+    width: 250px;
+    border-radius: 5px;
+    outline: none;
+    padding: 3px 10px;
+    transition-duration: 0.4s;
+}
+
+.container input:focus {
+    width: 300px;
+}
+
+.all_cards {
+    display: flex;
+    padding: 10px 10px;
+    background: #FFFAFA;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 35px #000;
+    width: 55%;
+    padding-left: 150px;
+    margin: 30px auto;
+    min-height: 230px;
+    min-width: 400px;
+    opacity: 0.95;
+}
+
+.card {
+    height: 0px;
+    width: 0px;
+}
+
+.card img {
+    height: 150px;
+    width: 101px;
+    position: relative;
+    top: 25px;
+    right: 120px;
+    padding-left: 10px;
+}
+
+.card-body .rating-star {
+    padding-bottom: 4px;
+}
+
+.card-body .imdb:hover, .home:hover {
+    transform: scale(1.1);
+}
